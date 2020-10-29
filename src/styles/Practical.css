@@ -1,4 +1,36 @@
 .practical {
+  display: grid;
+  grid-template-rows: 10% 1fr;
   width: 100%;
   border-bottom: 1px solid black;
+}
+
+.title {
+  justify-self: center;
+  height: 100%;
+  grid-column: span 4;
+}
+
+.job {
+  justify-self: center;
+  width: 95%;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.job > * {
+  padding: 2px;
+}
+
+.job-title {
+  font-weight: bold;
+}
+
+.location {
+  opacity: 0.6;
+}
+
+.dates {
+  opacity: 0.4;
 }

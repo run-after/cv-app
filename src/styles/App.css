@@ -3,8 +3,8 @@
   align-self: center;
   display: grid;
   grid-template-rows: 15% 45% 1fr;
-  height: 600px;
+  height: 99%;
   width: 75%;
-  background: red;
+  border: 1px solid black;
   border-radius: 10px;
 }

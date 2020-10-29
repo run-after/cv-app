@@ -1,0 +1,22 @@
+.container {
+  justify-self: center;
+  display: grid;
+  grid-template-rows: 15% 45% 1fr;
+  height: 600px;
+  width: 75%;
+  background: red;
+}
+
+.general {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.practical {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.education {
+  width: 100%;
+}

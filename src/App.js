@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import React from 'react';
 import General from './components/General';
 import Practical from './components/Practical';
@@ -12,15 +12,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="general">
-          <General />
-        </div>
-        <div className="practical">
-          <Practical />
-        </div>
-        <div className="education">
-          <Education />
-        </div>
+        <General />
+        <Practical />
+        <Education />
       </div>
       
     );

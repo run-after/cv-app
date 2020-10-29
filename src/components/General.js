@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/General.css';
 
 class General extends React.Component {
   constructor() {
@@ -8,8 +9,10 @@ class General extends React.Component {
 
   render() {
     return (
-      <div class="test">
-        <p>general</p>
+      <div className='general'>
+        <h1 className='name'>John Doe</h1>
+        <a className='email' href="mailto:example@example.com">example@example.com</a>
+        <span className='phone'>555-555-5555</span>
       </div>
     )
   }

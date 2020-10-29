@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Education.css';
 
 class Education extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ class Education extends React.Component {
 
   render() {
     return (
-      <div class="test">
+      <div class="education">
         <p>education</p>
       </div>
     )

@@ -1,0 +1,10 @@
+.container {
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  grid-template-rows: 15% 45% 1fr;
+  height: 600px;
+  width: 75%;
+  background: red;
+  border-radius: 10px;
+}

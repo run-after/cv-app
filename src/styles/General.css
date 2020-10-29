@@ -1,0 +1,27 @@
+.general {
+  display: grid;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.general > * {
+  padding: 5px;
+}
+
+.name {
+  justify-self: center;
+  grid-row: 1 / 2;
+  grid-column: span 2;
+}
+
+.email {
+  display: inline;
+  justify-self: end;
+  grid-row: 2 / 3;
+}
+
+.phone {
+  display: inline;
+  justify-self: start;
+  grid-row: 2 / 3;
+}

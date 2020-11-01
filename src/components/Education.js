@@ -10,6 +10,7 @@ class Education extends React.Component {
   render() {
     return (
       <div className='education'>
+        <button className='edit-button'>&#9998;</button>
         <h3 className='title'>Education</h3>
         <div className="school">
           <h4 className='school-name'>School 1</h4>

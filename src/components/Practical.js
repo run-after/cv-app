@@ -10,6 +10,7 @@ class Practical extends React.Component {
   render() {
     return (
       <div className='practical'>
+        <button className='edit-button'>&#9998;</button>
         <h3 className='title'>Experience</h3>
         <div className="job">
           <h4 className='job-title'>Job 1</h4>

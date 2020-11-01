@@ -10,6 +10,7 @@ class General extends React.Component {
   render() {
     return (
       <div className='general'>
+        <button className='edit-button'>&#9998;</button>
         <h1 className='name'>John Doe</h1>
         <a className='email' href="mailto:example@example.com">example@example.com</a>
         <span className='phone'>555-555-5555</span>

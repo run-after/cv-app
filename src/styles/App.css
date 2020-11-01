@@ -2,7 +2,7 @@
   justify-self: center;
   align-self: center;
   display: grid;
-  grid-template-rows: 15% 45% 1fr;
+  grid-template-rows: 15% 55% 1fr;
   height: 99%;
   width: 75%;
   border: 1px solid black;

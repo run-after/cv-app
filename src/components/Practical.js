@@ -2,9 +2,8 @@ import React from 'react';
 import '../styles/Practical.css';
 
 class Practical extends React.Component {
-  constructor() {
-    super()
-    this.state = { }
+  constructor(props) {
+    super(props)
   }
 
   render() {

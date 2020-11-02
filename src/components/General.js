@@ -1,22 +1,24 @@
-import React from 'react';
 import '../styles/General.css';
 
-class General extends React.Component {
-  constructor() {
-    super()
-    this.state = { }
-  }
+const General = (props) => {
 
-  render() {
-    return (
+  return (
       <div className='general'>
-        <button className='edit-button'>&#9998;</button>
-        <h1 className='name'>John Doe</h1>
-        <a className='email' href="mailto:example@example.com">example@example.com</a>
-        <span className='phone'>555-555-5555</span>
+        <button className='edit-button' onClick={props.showGeneralModal}>&#9998;</button>
+        <h1 className='name'>{props.general.name}</h1>
+        <span className='email'>{props.general.email}</span>
+        <span className='phone'>{props.general.phone}</span>
+      
+        <div className='general-modal'>
+          <form onSubmit={props.setGeneralState}>
+            <input type='text' defaultValue={props.general.name} />
+            <input type='text' defaultValue={props.general.email} />
+            <input type='text' defaultValue={props.general.phone} />
+            <button type='submit'>Submit</button>
+          </form>
+        </div>
       </div>
     )
-  }
 }
 
 export default General;

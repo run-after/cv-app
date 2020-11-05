@@ -1,43 +1,41 @@
-import React from 'react';
 import '../styles/Practical.css';
 
-class Practical extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+const Practical = (props) => {
 
-  render() {
-    return (
-      <div className='practical'>
-        <button className='edit-button'>&#9998;</button>
-        <h3 className='title'>Experience</h3>
-        <div className="job">
-          <h4 className='job-title'>Job 1</h4>
-          <h6 className='location'>Location 1</h6>
-          <p className='dates'>1/19 - Current</p>
-          <p className='summary'>Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-        </div>
-        <div className="job">
-          <h4 className='job-title'>Job 2</h4>
-          <h6 className='location'>Location 2</h6>
-          <p className='dates'>1/18 - 1/19</p>
-          <p className='summary'>Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-        </div>
-        <div className="job">
-          <h4 className='job-title'>Job 3</h4>
-          <h6 className='location'>Location 3</h6>
-          <p className='dates'>1/17 - 1/18</p>
-          <p className='summary'>Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-        </div>
-        <div className="job">
-          <h4 className='job-title'>Job 4</h4>
-          <h6 className='location'>Location 4</h6>
-          <p className='dates'>1/16 - 1/17</p>
-          <p className='summary'>Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-        </div>
-      </div>
-    )
-  }
+  return (
+    <div className='practical'>
+      <h3 className='title'>Experience</h3>
+      
+      {/* Loops through each job in props and creates a card */}
+      {Object.keys(props.practical).map((key) => {
+        
+        const job = props.practical[key];
+        
+        return (
+          <div className="job" id={key} key={key}>
+            <div className='practical-modal'>
+              <form onSubmit={props.setPracticalState}>
+                <input type='text' style={{ width: '90%' }} defaultValue={job.title} />
+                <input type='text' style={{ width: '90%'}}  defaultValue={job.location} />
+                <input tyep='text' style={{ width: '90%' }} defaultValue={job.dates} />
+                <textarea style={{width: '95%'}} defaultValue={job.description} />
+                <button type='submit' style={{ width: '100%'}}>Submit</button>
+              </form>
+            </div>
+            <button className='edit-button' onClick={props.showPracticalModal}>&#9998;</button>
+            <button className='delete-button' onClick={props.removeJob}>&#128465;</button>
+            <h4 className='job-title'>{job.title}</h4>
+            <h6 className='location'>{job.location}</h6>
+            <p className='dates'>{job.dates}</p>
+            <p className='summary'>{job.description}</p>
+          </div>
+        )
+      })} 
+    </div>
+  )
+  
 }
 
 export default Practical;
+
+// Still need a way to add/delete job experience

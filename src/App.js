@@ -78,8 +78,7 @@ class App extends React.Component {
   }
 
   removeJob = (e) => {
-    
-    const remainingJobs = Object.keys(this.state.practical).map((key) => {
+    const remainingJobs = Object.keys(this.state.practical).map((key) => { 
       if (e.target.parentNode.id !== key) {
         return this.state.practical[key];
       }
@@ -88,14 +87,36 @@ class App extends React.Component {
     this.setState({
       practical: remainingJobs
     });
-    // working but UGLY
   };
+
+  addJob = (e) => {
+    let newJobNum = Object.keys(this.state.practical).length +1;
+    this.setState(prevState => ({
+      practical: {
+        ...prevState.practical,
+        ['job' + newJobNum]: {
+          title: '',
+          location: '',
+          dates: '',
+          description: ''
+        }
+      }
+    }))
+    //Need timeout to allow to render before can fake the click
+    setTimeout(() => {
+      document.getElementById('job' + newJobNum).childNodes[1].click()
+    }, 1);
+  }
 
   render() {
     return (
       <div className="container">
         <General general={this.state.general} showGeneralModal={this.showGeneralModal} setGeneralState={this.setGeneralState} />
-        <Practical practical={this.state.practical} showPracticalModal={this.showPracticalModal} setPracticalState={this.setPracticalState} removeJob={this.removeJob} />
+        <Practical practical={this.state.practical}
+                   showPracticalModal={this.showPracticalModal}
+                   setPracticalState={this.setPracticalState}
+                   removeJob={this.removeJob}
+                   addJob={this.addJob} />
         <Education />
       </div>
       

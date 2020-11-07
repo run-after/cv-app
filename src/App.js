@@ -19,18 +19,14 @@ class App extends React.Component {
           location: 'Location 1',
           dates: '1/19 - Current',
           description: 'Job 1 description'
-        },
-        'job2': {
-          title: 'Job 2',
-          location: 'Location 2',
-          dates: '1/18 - 1/19',
-          description: 'Job 2 description'
-        },
-        'job3': {
-          title: 'Job 3',
-          location: 'Location 3',
-          dates: '1/17 - 1/18',
-          description: 'Job 3 description'
+        }
+      },
+      education: {
+        'school1': {
+          name: 'School 1',
+          location: 'Location 1',
+          dates: '1/19 - Current',
+          summary: 'School 1 summary'
         }
       }
     };
@@ -108,6 +104,63 @@ class App extends React.Component {
     }, 1);
   }
 
+  /* Education Section */
+  
+  setEducationState = (e) => {
+    
+    const parentID = e.target.parentNode.parentNode.id;
+    e.preventDefault();
+    this.setState(prevState => ({
+      education: {
+        ...prevState.education,
+        [parentID]: {
+          name: e.target[0].value,
+          location: e.target[1].value,
+          dates: e.target[2].value,
+          summary: e.target[3].value
+        }
+        
+      }
+    }))
+    e.target.parentNode.style = 'display: none';
+  }
+  
+  showEducationModal = (e) => {
+    e.target.parentNode.children[0].style = 'display: grid';
+  }
+
+  removeSchool = (e) => {
+    const remainingSchools = Object.keys(this.state.education).map((key) => { 
+      if (e.target.parentNode.id !== key) {
+        return this.state.education[key];
+      }
+    }).filter(a => a !== undefined);
+    
+    this.setState({
+      education: remainingSchools
+    });
+  };
+
+  addSchool = (e) => {
+    let newSchoolNum = Object.keys(this.state.education).length +1;
+    this.setState(prevState => ({
+      education: {
+        ...prevState.education,
+        ['school' + newSchoolNum]: {
+          name: '',
+          location: '',
+          dates: '',
+          summary: ''
+        }
+      }
+    }))
+    //Need timeout to allow to render before can fake the click
+    setTimeout(() => {
+      document.getElementById('school' + newSchoolNum).childNodes[1].click()
+    }, 1);
+  }
+  
+
   render() {
     return (
       <div className="container">
@@ -117,7 +170,11 @@ class App extends React.Component {
                    setPracticalState={this.setPracticalState}
                    removeJob={this.removeJob}
                    addJob={this.addJob} />
-        <Education />
+        <Education education={this.state.education}
+                   showEducationModal={this.showEducationModal}
+                   setEducationState={this.setEducationState}
+                   removeSchool={this.removeSchool}
+                   addSchool={this.addSchool} />
       </div>
       
     );

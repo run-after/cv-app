@@ -19,7 +19,7 @@
   border: 1px solid black;
   border-radius: 10px;
   margin: 5px;
-  position: relative; /* may be able to get rid of if I don't have edit button on each job */
+  position: relative;
 }
 
 .job > * {

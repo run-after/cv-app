@@ -23,7 +23,7 @@ const Education = (props) => {
                 </form>
               </div>
               <button className='action-btn edit-button' onClick={props.showEducationModal}>&#9998;</button>
-              <button className='action-btn delete-button' onClick={props.removeSchool}>&#128465;</button>
+              <button className='action-btn delete-button' onClick={props.removeSchool}>X</button>
               <h4 className='job-title'>{school.name}</h4>
               <h6 className='location'>{school.location}</h6>
               <p className='dates'>{school.dates}</p>

@@ -6,8 +6,7 @@ const Practical = (props) => {
     <div className='practical'>
       <h3 className='title'>Experience</h3>
       <button className='action-btn add-button' onClick={props.addJob}>+</button>
-      
-      
+    
       {/* Loops through each job in props and creates a card */
         Object.keys(props.practical).map((key) => {
           const job = props.practical[key];
@@ -23,7 +22,7 @@ const Practical = (props) => {
                 </form>
               </div>
               <button className='action-btn edit-button' onClick={props.showPracticalModal}>&#9998;</button>
-              <button className='action-btn delete-button' onClick={props.removeJob}>&#128465;</button>
+              <button className='action-btn delete-button' onClick={props.removeJob}>X</button>
               <h4 className='job-title'>{job.title}</h4>
               <h6 className='location'>{job.location}</h6>
               <p className='dates'>{job.dates}</p>
@@ -38,5 +37,3 @@ const Practical = (props) => {
 }
 
 export default Practical;
-
-// Still need a way to add job experience
